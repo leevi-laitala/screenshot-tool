@@ -49,7 +49,7 @@ if [[ -e $fname ]]; then
 
   case $opt in
   $opt1)
-    dunstify -i $icoImg -t 5000 "Screenshot taken" "Screenshot saved to $fname\n Size: $(du -h $fname | awk '{print $1}')"
+    dunstify -i "$icoImg" -t 5000 "Screenshot taken" "Screenshot saved to $fname\n Size: $(du -h $fname | awk '{print $1}')"
     exit 0
     ;;
   $opt2)
@@ -103,18 +103,18 @@ if [[ -e $fname ]]; then
 
 
       rm -f $fname
-      dunstify -i $icoErr -t 5000 -u critical "QR code scan failed" "Scanning QR code was cancelled by user"
+      dunstify -i $icoError -t 5000 -u critical "QR code scan failed" "Scanning QR code was cancelled by user"
       exit 1
     fi
 
     rm -f $fname
-    dunstify -i $icoErr -t 5000 -u critical "QR code scan failed" "No QR code was found in the image"
+    dunstify -i $icoError -t 5000 -u critical "QR code scan failed" "No QR code was found in the image"
     exit 1
     ;;
   esac
 
   rm -f $fname
-  dunstify -i $icoErr -t 5000 -u critical "Screenshot failed" "Taking screenshot cancelled by user"
+  dunstify -i $icoError -t 5000 -u critical "Screenshot failed" "Taking screenshot cancelled by user"
 else
-  dunstify -i $icoErr -t 5000 -u critical "Screenshot failed" "Saving or taking screenshot failed"
+  dunstify -i $icoError -t 5000 -u critical "Screenshot failed" "Saving or taking screenshot failed"
 fi

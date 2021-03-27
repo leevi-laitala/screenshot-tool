@@ -1,6 +1,6 @@
 # Screenshot tool
 
-Screenshot tool written in shell
+Screenshot tool with dmenu ui written in shell
 
 ### Depencies:
 - slop

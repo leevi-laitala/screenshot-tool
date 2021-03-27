@@ -1,6 +1,6 @@
 # Screenshot tool
 
-Currenty pretty ghetto screenshot tool written in bash
+Currenty pretty ghetto screenshot tool written in shell
 
 ### Depencies:
 - slop

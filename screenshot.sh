@@ -49,7 +49,7 @@ if [[ -e $fname ]]; then
 
   case $opt in
   $opt1)
-    dunstify -i "$icoImg" -t 5000 "Screenshot taken" "Screenshot saved to $fname\n Size: $(du -h $fname | awk '{print $1}')"
+    dunstify -i $icoImg -t 5000 "Screenshot taken" "Screenshot saved to $fname\n Size: $(du -h $fname | awk '{print $1}')"
     exit 0
     ;;
   $opt2)

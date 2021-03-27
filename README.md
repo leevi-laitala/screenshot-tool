@@ -9,3 +9,4 @@ Screenshot tool with dmenu ui written in shell
 - imgurqt
 - dmenu
 - zbar
+- xclip

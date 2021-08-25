@@ -1,6 +1,13 @@
 #!/usr/bin/sh
-path="/home/$USER/Code/screenshot-tool/"
+
+# Paths has to end in a slash
+path="/home/$USER/Pictures/screenshots/"
 tmp="/tmp/"
+
+[ ! -d $path ] && mkdir -p $path
+[ ! -d $tmp ] && mkdir -p $tmp
+
+snd="/usr/share/sounds/freedesktop/stereo/camera-shutter.oga"
 
 iconError="report_problem"
 iconSuccess="add_photo_alternate"
@@ -30,7 +37,8 @@ opt3="Delete screenshot"
 
 # Take screenshot
 shotgun -f png -g $geometry "$path$file" && \
-    opt=$(echo -e "$opt1\n$opt2\n$opt3" | dmenu -i -p "What next?" | grep "\<$opt1\>\|\<$opt2\>\|\<$opt3\>")
+    paplay --volume=40000 $snd & \
+    opt=$(echo -e "$opt1\n$opt2\n$opt3" | dmenu -i -p "Screenshot taken, what next?" | grep "\<$opt1\>\|\<$opt2\>\|\<$opt3\>")
 
 [ -z "$opt" ] && errorMessage "Cancelled by user"
 
